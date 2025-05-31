@@ -28,6 +28,9 @@ public class WheelAxle
     private WheelHit leftWheelHit;
     private WheelHit rightWheelHit;
 
+    public bool IsMotor => isMotor;
+    public bool IsSteer => isSteer;
+
     public void Update()
     {
         UpdateWheelHits();
@@ -37,6 +40,16 @@ public class WheelAxle
         CorrectStiffness();
 
         SyncMeshTransform();
+    }
+
+    public float GetAvarageRpm()
+    {
+        return (leftWheelCollider.rpm + rightWheelCollider.rpm) * 0.5f;
+    }
+
+    public float GetRadius()
+    {
+        return leftWheelCollider.radius;
     }
 
     private void UpdateWheelHits()
@@ -108,7 +121,7 @@ public class WheelAxle
 
         if (steerAngle > 0)
         {
-            leftWheelCollider.steerAngle = Mathf.Rad2Deg * Mathf.Atan( wheelBaseLength / (radius + (wheelWidth * 0.5f))) * angleSing;
+            leftWheelCollider.steerAngle = Mathf.Rad2Deg * Mathf.Atan( wheelBaseLength / (radius + (wheelWidth * 0.5f))) * angleSing; 
             rightWheelCollider.steerAngle = Mathf.Rad2Deg * Mathf.Atan(wheelBaseLength / (radius - (wheelWidth * 0.5f))) * angleSing;
         }
         else if (steerAngle < 0)
@@ -155,4 +168,6 @@ public class WheelAxle
         wheelTransform.position = position;
         wheelTransform.rotation = rotation;
     }
+
+   
 }
