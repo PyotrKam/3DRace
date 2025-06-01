@@ -26,20 +26,23 @@ public class CarInputControl : MonoBehaviour
         UpdateSteer();       
 
         UpdateAutoBreak();
-    }
 
-    private void UpdateSteer()
-    {
-        car.SteerControl = steerCurve.Evaluate(car.WheelSpeed / car.MaxSpeed) * horizontalAxis;
-    }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            car.UpGear();
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            car.DownGear();
+        }
 
- 
+    }
 
     private void UpdateThrottleAndBreak()
-    { 
+    {
         if (Mathf.Sign(verticalAxis) == Mathf.Sign(wheelSpeed) || Mathf.Abs(wheelSpeed) < 0.5f)
         {
-            car.ThrottleControl = verticalAxis;
+            car.ThrottleControl = Mathf.Abs(verticalAxis);
             car.BrakeControl = 0;
         }
 
@@ -48,7 +51,23 @@ public class CarInputControl : MonoBehaviour
             car.ThrottleControl = 0;
             car.BrakeControl = breakCurve.Evaluate(wheelSpeed / car.MaxSpeed);
         }
+
+        if (verticalAxis < 0 && wheelSpeed > -0.5f && wheelSpeed <= 0.5f)
+        {
+            car.ShiftToReversGear();
+        }
+
+        if (verticalAxis > 0 && wheelSpeed > -0.5f && wheelSpeed < 0.5f)
+        {
+            car.ShiftToFirstGear();
+        }
+
     }
+
+    private void UpdateSteer()
+    {
+        car.SteerControl = steerCurve.Evaluate(car.WheelSpeed / car.MaxSpeed) * horizontalAxis;
+    }   
 
     private void UpdateAxis()
     {

@@ -1194,7 +1194,7 @@ Transform:
   m_GameObject: {fileID: 1792085517}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.27133667, z: -0, w: 0.9624846}
-  m_LocalPosition: {x: 227.2, y: 68.5, z: -46.45}
+  m_LocalPosition: {x: 129.3, y: 1, z: -106.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1245,33 +1245,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSteerAngle: 25
-  maxBrakeTorque: 10000
+  maxBrakeTorque: 50000
   engineTorqueCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: -3.6954548
-      outSlope: -3.6954548
+      value: 0
+      inSlope: 5.563196
+      outSlope: 5.563196
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.13250896
-      value: 0.5103191
-      inSlope: 0.2105242
-      outSlope: 0.2105242
+      time: 0.1017717
+      value: 0.56617594
+      inSlope: 2.6565197
+      outSlope: 2.6565197
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.05972415
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -0.5882702
-      outSlope: -0.5882702
+      time: 0.26394504
+      value: 0.7914336
+      inSlope: 0.109300785
+      outSlope: 0.109300785
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7000676
+      value: 0.79794526
+      inSlope: 0.018567028
+      outSlope: 0.018567028
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.095286995
+    - serializedVersion: 3
+      time: 1.0018921
+      value: 0.01115723
+      inSlope: -2.6067731
+      outSlope: -2.6067731
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -1279,8 +1297,24 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxMotorTorque: 16000
-  maxSpeed: 200
+  engineMaxTorque: 200
+  engineTorque: 0
+  engineRpm: 0
+  engineMinRpm: 800
+  engineMaxRpm: 7000
+  gears:
+  - 3.77
+  - 2.6
+  - 1.6
+  - 1
+  - 0.7
+  finalDriveRatio: 4.7
+  selectedGearIndex: 0
+  selectedGear: 3.77
+  rearGear: -3.7
+  upShiftEngineRpm: 6400
+  downShiftEngineRpm: 3000
+  maxSpeed: 400
   linearVelecity: 0
   ThrottleControl: 0
   SteerControl: 0
