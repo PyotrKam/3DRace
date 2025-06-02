@@ -42,6 +42,12 @@ public class WheelAxle
         SyncMeshTransform();
     }
 
+    public void ConfigureVehicleSubsteps(float speedThreshold, int speedBelowThreshold, int stepsAboveThreshold)
+    {
+        leftWheelCollider.ConfigureVehicleSubsteps(speedThreshold, speedBelowThreshold, stepsAboveThreshold);
+        rightWheelCollider.ConfigureVehicleSubsteps(speedThreshold, speedBelowThreshold, stepsAboveThreshold);
+    }
+
     public float GetAvarageRpm()
     {
         return (leftWheelCollider.rpm + rightWheelCollider.rpm) * 0.5f;
