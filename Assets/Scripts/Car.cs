@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(CarChassis))]
 public class Car : MonoBehaviour
 {
-    
+    public event UnityAction<string> GearChanged;
 
    
     [SerializeField] private float maxSteerAngle;
@@ -44,6 +45,8 @@ public class Car : MonoBehaviour
     public float WheelSpeed => chassis.GetWheelSpeed();
     public float MaxSpeed => maxSpeed;
 
+    public float EngineRpm => engineRpm;
+    public float EngineMaxRpm => engineMaxRpm;
 
 
     private CarChassis chassis;
@@ -79,7 +82,14 @@ public class Car : MonoBehaviour
     } 
 
     //Gearbox
+    public string GetSelectedGearName()
+    {
+        if (selectedGear == rearGear) return "r";
 
+        if (selectedGear == 0) return "n";
+
+        return (selectedGearIndex + 1).ToString();
+    }
     private void AutoGearShift()
     {
         
@@ -107,9 +117,10 @@ public class Car : MonoBehaviour
         ShiftGear(selectedGearIndex - 1);
     }
 
-    public void SheftToReverseGear()
+    public void ShiftToReverseGear()
     {
-        selectedGear = rearGear;      
+        selectedGear = rearGear;
+        GearChanged?.Invoke(GetSelectedGearName());
     }
 
     public void ShiftToFirstGear()
@@ -117,14 +128,16 @@ public class Car : MonoBehaviour
         ShiftGear(0);
     }
 
-    public void ShiftToNetral()
+    public void ShiftToNeutral()
     {
         selectedGear = 0;
+        GearChanged?.Invoke(GetSelectedGearName());
     }
 
     public void ShiftToReversGear()
     {
         selectedGear = rearGear;
+        GearChanged?.Invoke(GetSelectedGearName());
     }
 
     private void ShiftGear(int gearIndex)
@@ -133,7 +146,7 @@ public class Car : MonoBehaviour
         gearIndex = Mathf.Clamp(gearIndex,  0, gears.Length - 1);
         selectedGear = gears[gearIndex];
         selectedGearIndex = gearIndex;
-        Debug.Log($"{selectedGear}");
+        GearChanged?.Invoke(GetSelectedGearName());
     }
 
     private void UpdateEnineTorque()
