@@ -42,11 +42,13 @@ public class Car : MonoBehaviour
     
 
     public float LinearVelecity => chassis.LinearVelocity;
+    public float NormalizeLinearVelocity => chassis.LinearVelocity / maxSpeed;
     public float WheelSpeed => chassis.GetWheelSpeed();
     public float MaxSpeed => maxSpeed;
 
     public float EngineRpm => engineRpm;
     public float EngineMaxRpm => engineMaxRpm;
+
 
 
     private CarChassis chassis;
