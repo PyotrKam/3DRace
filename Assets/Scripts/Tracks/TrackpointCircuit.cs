@@ -16,6 +16,7 @@ public class TrackpointCircuit : MonoBehaviour
     public event UnityAction<int> LapCompleted;
 
     [SerializeField] private TrackType type;
+    public TrackType Type => type;
 
     private TrackPoint[] points;
 
