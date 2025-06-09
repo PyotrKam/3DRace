@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFovCorrector : MonoBehaviour
+public class CarCameraFovCorrector : CarCameraComponent
 {
-    [SerializeField] private Car car;
-    [SerializeField] private new Camera camera;
-
+    
+    
     [SerializeField] private float minFieldOfView;
     [SerializeField] private float maxFieldOfView;
 
