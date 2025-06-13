@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaceKeyboardStarter : MonoBehaviour
+public class RaceKeyboardStarter : MonoBehaviour, IDependency<RaceStateTracker>
 {
-    [SerializeField] private RaceStateTracker reaceStateTracker;
+    private RaceStateTracker raceStateTracker;
+    public void Construct(RaceStateTracker obj) => raceStateTracker = obj;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return) == true)
         {
-            reaceStateTracker.LaunchPreparationStart();
+            raceStateTracker.LaunchPreparationStart();
         }
     }
 }

@@ -7,8 +7,8 @@ public class ActivatedTrackPoint : TrackPoint
     [SerializeField] private GameObject hint;
 
     private void Start()
-    {
-        hint.SetActive(false);
+    {        
+       hint.SetActive(isTarget);
     }
 
     protected override void OnPassed()
