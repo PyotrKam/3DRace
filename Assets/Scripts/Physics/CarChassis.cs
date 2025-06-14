@@ -101,4 +101,10 @@ public class CarChassis : MonoBehaviour
             wheelAxles[i].ApplyBreakTorque(BrakeTroque);
         }
     }
+
+    public void Reset()
+    {
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.angularVelocity = Vector3.zero;
+    }
 }

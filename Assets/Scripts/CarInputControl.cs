@@ -64,6 +64,8 @@ public class CarInputControl : MonoBehaviour
 
     }
 
+    
+
     private void UpdateSteer()
     {
         car.SteerControl = steerCurve.Evaluate(car.WheelSpeed / car.MaxSpeed) * horizontalAxis;
@@ -84,7 +86,7 @@ public class CarInputControl : MonoBehaviour
         }
     }
 
-    public void Stop()
+    public void Reset()
     {
         verticalAxis = 0;
         horizontalAxis = 0;
@@ -92,6 +94,16 @@ public class CarInputControl : MonoBehaviour
 
         car.ThrottleControl = 0;
         car.SteerControl = 0;
+        car.BrakeControl = 0;
+    }
+
+    public void Stop()
+    {
+        Reset();
+
+        
         car.BrakeControl = 1;
     }
+
+    
 }
