@@ -16,6 +16,10 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
     public event UnityAction<UIButton> PointerExit;
     public event UnityAction<UIButton> PointerClick;
 
+    
+    
+    
+    
     public virtual void SetFocuse()
     {
         if (Interactable == false) return;
@@ -30,21 +34,21 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
         focuse = false;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public virtual void OnPointerEnter(PointerEventData eventData)
     {
         if (Interactable == false) return;
 
         PointerEnter?.Invoke(this);
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public virtual void OnPointerExit(PointerEventData eventData)
     {
         if (Interactable == false) return;
 
         PointerExit?.Invoke(this);
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public virtual void OnPointerClick(PointerEventData eventData)
     {
         if (Interactable == false) return;
 
