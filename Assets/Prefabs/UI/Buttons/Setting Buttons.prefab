@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 6311487790421938329}
   - component: {fileID: 7832775797541429263}
   - component: {fileID: 6506637286399782926}
-  - component: {fileID: 6326413891519089170}
+  - component: {fileID: 8553855933473876891}
   m_Layer: 0
   m_Name: Setting Buttons
   m_TagString: Untagged
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &6326413891519089170
+--- !u!114 &8553855933473876891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4631754660341214100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c000a4332280fe64bbd8436d92cb5e7b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2db42b81e9b3aeb46886b480b789a014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Interactable: 1
@@ -256,6 +256,11 @@ MonoBehaviour:
   OnUnSelect:
     m_PersistentCalls:
       m_Calls: []
+  setting: {fileID: 0}
+  titleText: {fileID: 6570799967102748258}
+  valueText: {fileID: 3504332970715404344}
+  previousImage: {fileID: 3416603890775357506}
+  nextImage: {fileID: 8403814111758361660}
 --- !u!1 &4681822484951565529
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +273,7 @@ GameObject:
   - component: {fileID: 4811594844582556617}
   - component: {fileID: 3416603890775357506}
   - component: {fileID: 870595102905265170}
+  - component: {fileID: 5989550176539242334}
   m_Layer: 0
   m_Name: Previous Button
   m_TagString: Untagged
@@ -347,6 +353,34 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &5989550176539242334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4681822484951565529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7a23ec952097140a3110dca6863e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Interactable: 1
+  OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8553855933473876891}
+        m_TargetAssemblyTypeName: UISettingsButton, Assembly-CSharp
+        m_MethodName: SetPreviousValueSetting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6373022806217044596
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +393,7 @@ GameObject:
   - component: {fileID: 3647188424677063353}
   - component: {fileID: 8403814111758361660}
   - component: {fileID: 1176985977498648835}
+  - component: {fileID: 2251601508296181552}
   m_Layer: 0
   m_Name: Next Button
   m_TagString: Untagged
@@ -438,6 +473,34 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &2251601508296181552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6373022806217044596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7a23ec952097140a3110dca6863e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Interactable: 1
+  OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8553855933473876891}
+        m_TargetAssemblyTypeName: UISettingsButton, Assembly-CSharp
+        m_MethodName: SetNextValueSetting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7134502804992847700
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,10 +569,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ad83b6358eb62c94db581a77bcdea88f, type: 3}
-    m_FontSize: 74
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 5
     m_MaxSize: 74
     m_Alignment: 1
     m_AlignByGeometry: 0
