@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UIRaceButton : UISelectableButton
+public class UIRaceButton : UISelectableButton, IScriptableObjectProperty
 {
     [SerializeField] private RaceInfo raceInfo;
 
@@ -26,11 +26,13 @@ public class UIRaceButton : UISelectableButton
         SceneManager.LoadScene(raceInfo.SceneName);
     }
 
-    public void ApplyProperty(RaceInfo property)
+    public void ApplyProperty(ScriptableObject property)
     {
         if (property == null) return;
 
-        raceInfo = property;
+        if (property is RaceInfo == false) return;
+
+        raceInfo = property as RaceInfo;
 
         icon.sprite = raceInfo.Icon;
         title.text = raceInfo.Title;

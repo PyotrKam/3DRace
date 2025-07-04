@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIRaceButtonSpawner : MonoBehaviour
+public class SpawnObjectByPropertiesList : MonoBehaviour
 {
     [SerializeField] private Transform parent;
-    [SerializeField] private UIRaceButton prefab;
-    [SerializeField] private RaceInfo[] properties;
+    [SerializeField] private GameObject prefab;
+    [SerializeField] private ScriptableObject[] properties;
 
-    [ContextMenu(nameof(Spawn))]
-    public void Spawn()
+    [ContextMenu(nameof(SpawnInEditMode))]
+    public void SpawnInEditMode()
     {
         if (Application.isPlaying == true) return;
 
@@ -27,8 +27,9 @@ public class UIRaceButtonSpawner : MonoBehaviour
 
         for (int i = 0; i < properties.Length; i++)
         {
-            UIRaceButton button = Instantiate(prefab, parent);
-            button.ApplyProperty(properties[i]);
+            GameObject go = Instantiate(prefab, parent);
+            IScriptableObjectProperty scriptableObjectProperty = go.GetComponent<IScriptableObjectProperty>();
+            scriptableObjectProperty.ApplyProperty(properties[i]);
         }
     }
 }

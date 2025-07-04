@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UISettingsButton : UISelectableButton
+public class UISettingsButton : UISelectableButton, IScriptableObjectProperty
 {
     [SerializeField] private Setting setting;
     [SerializeField] private Text titleText;
@@ -40,14 +40,15 @@ public class UISettingsButton : UISelectableButton
         nextImage.enabled = !setting.isMaxValue;
     }
 
-    public void ApplyProperty(Setting property)
+    public void ApplyProperty(ScriptableObject property)
     {
         if (property == null) return;
 
-        setting = property;
+        if (property is Setting == false) return;
 
+        setting = property as Setting;
+        
         UpdateInfo();
-
     }
 
 }
