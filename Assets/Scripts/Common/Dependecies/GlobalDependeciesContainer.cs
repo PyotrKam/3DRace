@@ -4,17 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GlobalDependecies : Dependecy
+public class GlobalDependeciesContainer : Dependecy
 {
-    private static GlobalDependecies instance;
+    private static GlobalDependeciesContainer instance;
 
     private void Awake()
     {
         if (instance != null)
         {
-            Destroy(this);
+            Destroy(gameObject);
             return;
         }
+
+        instance = this;
 
         DontDestroyOnLoad(gameObject);
 
