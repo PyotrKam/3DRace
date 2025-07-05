@@ -12,6 +12,8 @@ public class SettingsLoader : MonoBehaviour
         {
             allSettings[i].Load();
             allSettings[i].Apply();
+
+            
         }
     }
 }

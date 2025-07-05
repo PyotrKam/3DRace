@@ -2,12 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDependency<T>
-{
-    void Construct(T obj);
-}
-
-public class SceneDependencies : MonoBehaviour
+public class SceneDependencies : Dependecy
 {
     [SerializeField] private RaceStateTracker raceStatTracker;
     [SerializeField] private CarInputControl carInputControl;
@@ -17,7 +12,7 @@ public class SceneDependencies : MonoBehaviour
     [SerializeField] private RaceTimeTracker raceTimeTracker;
     [SerializeField] private RaceResultTime raceResultTime;
 
-    private void Bind(MonoBehaviour mono)
+    protected override void Bind(MonoBehaviour mono)
     {
         if (mono is IDependency<RaceStateTracker>) (mono as IDependency<RaceStateTracker>).Construct(raceStatTracker);
         if (mono is IDependency<CarInputControl>) (mono as IDependency<CarInputControl>).Construct(carInputControl);
@@ -30,11 +25,6 @@ public class SceneDependencies : MonoBehaviour
 
     private void Awake()
     {
-        MonoBehaviour[] monoInScene = FindObjectsOfType<MonoBehaviour>();
-
-        for (int i = 0; i < monoInScene.Length; i++)
-        {
-            Bind(monoInScene[i]);            
-        }
+        FindAllObjectToBlind();
     }
 }
