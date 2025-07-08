@@ -31,6 +31,9 @@ public class RaceInputController : MonoBehaviour, IDependency<CarInputControl>, 
     {
         
         carControl.enabled = true;
+
+        var pausePanel = GameObject.FindObjectOfType<UIPausePanel>(true);
+        pausePanel.gameObject.SetActive(true);
     }
 
     private void OnRaceFinished()

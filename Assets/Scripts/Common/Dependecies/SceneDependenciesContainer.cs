@@ -11,6 +11,7 @@ public class SceneDependenciesContainer : Dependecy
     [SerializeField] private CarCameraController carCameraController;
     [SerializeField] private RaceTimeTracker raceTimeTracker;
     [SerializeField] private RaceResultTime raceResultTime;
+    //SerializeField] private Pauser pauser;
 
     protected override void BindAll(MonoBehaviour monoBehaviourInScene)
     {
@@ -21,7 +22,8 @@ public class SceneDependenciesContainer : Dependecy
         Bind<Car>(car, monoBehaviourInScene);
         Bind<CarCameraController>(carCameraController, monoBehaviourInScene);
         Bind<RaceTimeTracker>(raceTimeTracker, monoBehaviourInScene);
-        Bind<RaceResultTime>(raceResultTime, monoBehaviourInScene);        
+        Bind<RaceResultTime>(raceResultTime, monoBehaviourInScene);
+        //Bind<Pauser>(pauser, monoBehaviourInScene);
     }
 
     private void Awake()

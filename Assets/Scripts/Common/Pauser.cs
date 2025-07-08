@@ -35,6 +35,7 @@ public class Pauser : MonoBehaviour
         Time.timeScale = 1;
         isPause = false;
         PauseStateChange?.Invoke(isPause);
-    }
+    } 
+  
 
 }

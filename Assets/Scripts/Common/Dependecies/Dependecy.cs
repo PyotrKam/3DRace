@@ -6,7 +6,7 @@ public abstract class Dependecy : MonoBehaviour
 {
     protected virtual void BindAll(MonoBehaviour monoBehaviourInScene)
     {
-
+        
     }
 
     protected void FindAllObjectToBlind()

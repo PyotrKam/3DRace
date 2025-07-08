@@ -11,7 +11,7 @@ public class RaceKeyboardStarter : MonoBehaviour, IDependency<RaceStateTracker>
     {
         if (Input.GetKeyDown(KeyCode.Return) == true)
         {
-            raceStateTracker.LaunchPreparationStart();
+            raceStateTracker.LaunchPreparationStart();                       
         }
     }
 }
