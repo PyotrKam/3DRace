@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 
 public class Pauser : MonoBehaviour
@@ -10,6 +11,16 @@ public class Pauser : MonoBehaviour
 
     private bool isPause;
     public bool IsPause => isPause;
+
+    private void Awake()
+    {
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded; 
+    }
+
+    private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        UnPause();
+    }
 
     public void ChangePauseState()
     {
@@ -24,6 +35,7 @@ public class Pauser : MonoBehaviour
         if (isPause == true) return;
 
         Time.timeScale = 0;
+        //AudioListener.pause = true;
         isPause = true;
         PauseStateChange?.Invoke(isPause);
     }
@@ -33,6 +45,7 @@ public class Pauser : MonoBehaviour
         if (isPause == false) return;
 
         Time.timeScale = 1;
+        //AudioListener.pause = false;
         isPause = false;
         PauseStateChange?.Invoke(isPause);
     } 

@@ -60,6 +60,6 @@ public class ResolutionSetting : Setting
 
     private void Save()
     {
-        PlayerPrefs.GetInt(title, currentResolutionIndex);
+        PlayerPrefs.SetInt(title, currentResolutionIndex);
     }
 }

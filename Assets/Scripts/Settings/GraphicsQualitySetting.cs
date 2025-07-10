@@ -50,6 +50,6 @@ public class GraphicsQualitySetting : Setting
 
     private void Save()
     {
-        PlayerPrefs.GetInt(title, currentLevelIndex);
+        PlayerPrefs.SetInt(title, currentLevelIndex);
     }
 }

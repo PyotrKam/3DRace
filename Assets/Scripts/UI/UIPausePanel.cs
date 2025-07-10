@@ -12,7 +12,7 @@ public class UIPausePanel : MonoBehaviour, IDependency<Pauser>
 
     public void Construct(Pauser obj)
     {
-        Debug.Log("UIPausePanel: get Pauser in SceneDependenciesContainer");
+        //Debug.Log("UIPausePanel: get Pauser in SceneDependenciesContainer");
         pauser = obj;
     }
 
@@ -50,14 +50,8 @@ public class UIPausePanel : MonoBehaviour, IDependency<Pauser>
         }
     }
 
-    //-----------------------------------
-    private void OnEnable()
+    public void Unpause()
     {
-        Debug.Log("UIPausePanel: Enabled");
+        pauser.UnPause();
     }
-    private void OnDisable()
-    {
-        Debug.Log("UIPausePanel: Disabled");
-    }
-
 }
