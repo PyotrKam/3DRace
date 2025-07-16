@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55b23b6372d562840b405e1a77555f79, type: 3}
-  m_Name: TestRace
+  m_Name: MediumRace
   m_EditorClassIdentifier: 
-  sceneName: test_race
-  icon: {fileID: 21300000, guid: fd71aacaa24f9534cb0f2f2c8efa113a, type: 3}
-  title: Hard
+  sceneName: medium_race
+  icon: {fileID: 21300000, guid: a25f7c1e8d5ad354caf2e9ac454cccc2, type: 3}
+  title: Medium
